@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Городской убийца — стартовое меню</title>
+  <link rel="stylesheet"
+        href="/src/style/global.css">
+</head>
+
+<body>
+  <main class="start-shell"
+        aria-label="Стартовое меню игры «Городской убийца»">
+    <section class="panel panel--map"
+             aria-label="Карта города">
+      <div>
+        <div class="badge">
+          <span class="badge__dot"></span>
+          <span>Остросюжетная детективная дуэль на двоих</span>
+        </div>
+        <div class="title-wrap">
+          <h1 class="title">Городской убийца</h1>
+          <p class="subtitle">Нуар‑расследование в мрачном мегаполисе</p>
+          <p class="tagline">
+            Один игрок прячется в тени серийного убийцы, второй — выжимает из города признания,
+            улики и мотивы. Подготовьтесь к партии в режиме логики, следуя базовым правилам игры.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="panel panel--menu"
+             aria-label="Выбор режима и настроек партии">
+      <div class="menu-block">
+        <div>
+          <div class="menu-section-title">Начало партии</div>
+          <div class="primary-actions">
+            <a class="btn btn--primary"
+               href="./map.html">
+              <span class="btn__label-main">Новая партия</span>
+              <span class="btn__label-sub">Открыть карту города на полный экран</span>
+            </a>
+
+            <div class="btn-stack-horizontal">
+              <a class="btn btn--ghost"
+                 href="./docs/rules-game.pdf"
+                 download="городской-убийца-правила.pdf">
+                Полные правила (PDF)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="menu-section-title">Режим игры</div>
+          <div class="mode-row">
+            <div class="mode-label">Активный режим партии</div>
+            <div class="chips"
+                 aria-label="Режимы игры">
+              <div class="chip chip--active">Логика</div>
+            </div>
+          </div>
+          <div class="info-grid">
+            <div class="info-item">
+              <div class="info-item__label">Режим «Логика»</div>
+              <div class="info-item__value">
+                Базовые правила без карт детектива и убийцы, чистое логическое противостояние.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="menu-section-title">Параметры партии</div>
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-item__label">Количество игроков</div>
+            <div class="info-item__value info-item__value--accent">2&nbsp;игрока (допустимо 3–4 по командам)</div>
+          </div>
+          <div class="info-item">
+            <div class="info-item__label">Длительность</div>
+            <div class="info-item__value">5–6 раундов: фазы убийцы, детектива и города</div>
+          </div>
+        </div>
+
+        <div class="footer-line">
+          <span>Цель детектива: <strong>вычислить личность и мотив убийцы</strong>.</span>
+          <span>Цель убийцы: <strong>совершить 5 идеальных преступлений</strong>.</span>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
