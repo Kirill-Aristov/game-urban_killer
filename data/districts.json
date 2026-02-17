@@ -1,0 +1,18 @@
+[
+  { "id": "roki-hill", "name": "Роки Хилл" },
+  { "id": "port", "name": "Порт" },
+  { "id": "little-italy", "name": "Маленькая Италия" },
+  { "id": "golden-beach", "name": "Золотой пляж" },
+  { "id": "west-side", "name": "Вест‑Сайд" },
+  { "id": "business-center", "name": "Деловой центр" },
+  { "id": "president-square", "name": "Президентская площадь" },
+  { "id": "east-side", "name": "Ист‑Сайд" },
+  { "id": "chinatown", "name": "Китайский квартал" },
+  { "id": "central-park", "name": "Центральный парк" },
+  { "id": "santa-cruz", "name": "Санта‑Круз" },
+  { "id": "river-station", "name": "Речной вокзал" },
+  { "id": "stadium", "name": "Стадион" },
+  { "id": "richmond", "name": "Ричмонд" },
+  { "id": "university", "name": "Университет" },
+  { "id": "old-town", "name": "Старый город" }
+]

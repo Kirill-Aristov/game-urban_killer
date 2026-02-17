@@ -1,5 +1,16 @@
-const map_siti = document.querySelectorAll("#block_map")
+/**
+ * Возвращает NodeList или массив всех элементов .map-cell (с data-area-id).
+ */
+export function getMapCells() {}
 
-const block = document.querySelectorAll("#block_map .map-cell__block")
-console.log(block)
+/**
+ * Для данной ячейки возвращает массив из трёх .map-cell__block (или объект с индексами).
+ * @param {Element} cellElement — элемент .map-cell
+ */
+export function getCellBlocks(cellElement) {}
 
+/**
+ * Вернуть data-area-id ячейки.
+ * @param {Element} cellElement — элемент .map-cell
+ */
+export function getAreaIdFromCell(cellElement) {}

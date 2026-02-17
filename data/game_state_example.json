@@ -1,0 +1,21 @@
+{
+  "gameId": "game-uuid-here",
+  "code": "ABC12",
+  "round": 1,
+  "maxRounds": 6,
+  "phase": "killer",
+  "currentPlayerRole": "killer",
+  "players": [
+    { "role": "killer", "connected": true },
+    { "role": "detective", "connected": true }
+  ],
+  "board": [
+    { "areaId": "roki-hill", "slotIndex": 0, "characterId": null },
+    { "areaId": "roki-hill", "slotIndex": 1, "characterId": "char-1" },
+    { "areaId": "port", "slotIndex": 0, "characterId": "char-2" }
+  ],
+  "scores": {
+    "killer": 0,
+    "detective": 0
+  }
+}

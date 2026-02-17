@@ -38,13 +38,24 @@
         <div>
           <div class="menu-section-title">Начало партии</div>
           <div class="primary-actions">
-            <a class="btn btn--primary"
-               href="./map.html">
-              <span class="btn__label-main">Новая партия</span>
-              <span class="btn__label-sub">Открыть карту города на полный экран</span>
-            </a>
-
+            <button type="button" class="btn btn--primary" id="btn-create-game" aria-describedby="btn-create-game-desc">
+              <span class="btn__label-main">Создать партию</span>
+              <span class="btn__label-sub" id="btn-create-game-desc">Создание игры через сервер и переход на карту</span>
+            </button>
+            <div class="join-game-row">
+              <label for="game-code-input" class="visually-hidden">Код партии</label>
+              <input type="text"
+                     id="game-code-input"
+                     class="input-game-code"
+                     placeholder="Код партии"
+                     maxlength="12"
+                     autocomplete="off">
+              <button type="button" class="btn btn--ghost" id="btn-join-game">Подключиться</button>
+            </div>
             <div class="btn-stack-horizontal">
+              <a class="btn btn--ghost" href="./map.html" id="link-local-game">
+                Играть локально
+              </a>
               <a class="btn btn--ghost"
                  href="./docs/rules-game.pdf"
                  download="городской-убийца-правила.pdf">
