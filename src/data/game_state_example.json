@@ -1,0 +1,66 @@
+{
+  "gameId": "game-uuid-here",
+  "code": "ABC12",
+  "mode": "logic",
+  "round": 2,
+  "maxRounds": 6,
+  "phase": "killer",
+  "killerSubphase": "intimidation",
+  "detectiveSubphase": null,
+  "detectiveActionsLeft": 2,
+  "detectiveMovePointsLeft": 2,
+  "currentPlayerRole": "killer",
+  "players": [
+    { "role": "killer",    "connected": true },
+    { "role": "detective", "connected": true }
+  ],
+  "board": [
+    { "areaId": "roki-hill",        "slotIndex": 0, "characterId": "char-1",  "intimidated": false },
+    { "areaId": "roki-hill",        "slotIndex": 1, "characterId": "char-5",  "intimidated": false },
+    { "areaId": "port",             "slotIndex": 0, "characterId": "char-7",  "intimidated": false },
+    { "areaId": "little-italy",     "slotIndex": 0, "characterId": "char-3",  "intimidated": true  },
+    { "areaId": "golden-beach",     "slotIndex": 0, "characterId": "char-11", "intimidated": false },
+    { "areaId": "golden-beach",     "slotIndex": 1, "characterId": "char-15", "intimidated": false },
+    { "areaId": "west-side",        "slotIndex": 0, "characterId": "char-9",  "intimidated": false },
+    { "areaId": "president-square", "slotIndex": 0, "characterId": "char-22", "intimidated": false },
+    { "areaId": "east-side",        "slotIndex": 0, "characterId": "char-8",  "intimidated": false },
+    { "areaId": "chinatown",        "slotIndex": 0, "characterId": "char-13", "intimidated": false },
+    { "areaId": "central-park",     "slotIndex": 0, "characterId": "char-12", "intimidated": false },
+    { "areaId": "santa-cruz",       "slotIndex": 0, "characterId": "char-16", "intimidated": false },
+    { "areaId": "river-station",    "slotIndex": 0, "characterId": "char-19", "intimidated": false },
+    { "areaId": "stadium",          "slotIndex": 0, "characterId": "char-17", "intimidated": false },
+    { "areaId": "stadium",          "slotIndex": 1, "characterId": "char-23", "intimidated": false },
+    { "areaId": "richmond",         "slotIndex": 0, "characterId": "char-10", "intimidated": false },
+    { "areaId": "university",       "slotIndex": 0, "characterId": "char-14", "intimidated": false },
+    { "areaId": "old-town",         "slotIndex": 0, "characterId": "char-18", "intimidated": false },
+    { "areaId": "old-town",         "slotIndex": 1, "characterId": "char-20", "intimidated": false }
+  ],
+  "buildings": [
+    { "type": "Полицейский участок", "areaId": "west-side" },
+    { "type": "Полицейский участок", "areaId": "east-side" },
+    { "type": "Закусочная",          "areaId": "port" },
+    { "type": "Закусочная",          "areaId": "richmond" },
+    { "type": "Больница",            "areaId": "little-italy" },
+    { "type": "Больница",            "areaId": "chinatown" },
+    { "type": "Пожарная часть",      "areaId": "river-station" },
+    { "type": "Пожарная часть",      "areaId": "university" }
+  ],
+  "detectivePosition": { "areaId": "chinatown" },
+  "surveillanceTokens": [
+    { "areaId": "chinatown" }
+  ],
+  "victims": [
+    { "characterId": "char-2", "areaId": "business-center", "crimeIndex": 0 }
+  ],
+  "killerSkipUsed": false,
+  "secret": {
+    "killerCharacterId": "char-6",
+    "figurantCharacterId": "char-4",
+    "motiveId": "maniac",
+    "allySocialGroup": "криминал"
+  },
+  "scores": {
+    "killer": 0,
+    "detective": 0
+  }
+}

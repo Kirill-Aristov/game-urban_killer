@@ -1,0 +1,19 @@
+FROM node:20-alpine
+WORKDIR /app
+
+# Зависимости сервера
+COPY server/package*.json server/
+RUN cd server && npm ci
+
+# Исходный код сервера
+COPY server/ server/
+
+# Модули правил (импортируются из game_engine.js)
+COPY src/scripts/rules_game.js src/scripts/rules_game.js
+COPY src/scripts/initialization_game.js src/scripts/initialization_game.js
+
+# Данные игры (characters, districts, motives, social_group)
+COPY data/ data/
+
+EXPOSE 3000
+CMD ["node", "server/index.js"]

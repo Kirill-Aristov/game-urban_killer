@@ -1,0 +1,11 @@
+[
+  { "title": "закон", "img": "/assets/social_group/law.png" },
+  { "title": "медицина", "img": "/assets/social_group/medicine.png" },
+  { "title": "криминал", "img": "/assets/social_group/crime.png" },
+  { "title": "пресса", "img": "/assets/social_group/press.png" },
+  { "title": "власть", "img": "/assets/social_group/power.png" },
+  { "title": "маргиналы", "img": "/assets/social_group/marginals.png" },
+  { "title": "рабочие", "img": "/assets/social_group/worker.png" },
+  { "title": "иммигранты", "img": "/assets/social_group/immigrants.png" },
+  { "title": "богема", "img": "/assets/social_group/bohemian.png" }
+]

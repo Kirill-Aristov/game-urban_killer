@@ -1,0 +1,26 @@
+[
+  {
+    "type": "Полицейский участок",
+    "id": "police_station",
+    "img": "../assets/building/police_station.png",
+    "description": "Положите жетон слежки на жителя в этом или соседнем квартале"
+  },
+  {
+    "type": "Закусочная",
+    "id": "snack_bar",
+    "img": "../assets/building/snack_bar.png",
+    "description": "Опросите 1 незапуганного жителя в этом или соседнем квартале"
+  },
+  {
+    "type": "Больница",
+    "id": "hospital",
+    "img": "../assets/building/hospital.png",
+    "description": "Успокойте 1 запуганного жителя в этом или соседнем квартале"
+  },
+  {
+    "type": "Пожарная часть",
+    "id": "fire_department",
+    "img": "../assets/building/fire_department.png",
+    "description": "Возьмите случайный жетон из стопки соцгрупп. Можете переместить каждого жителя этой соцгруппы один раз"
+  }
+]

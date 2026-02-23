@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Городской убийца — карта города</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23222'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%23fff'>K</text></svg>">
   <link rel="stylesheet" href="/src/style/global.css">
 </head>
 
@@ -26,11 +27,34 @@
       </div>
       <div class="game-state-panel__row">
         <span class="game-state-panel__turn" id="turn-indicator">Ожидание…</span>
+        <span class="game-state-panel__role" id="my-role-indicator" aria-label="Ваша роль"></span>
         <span class="game-code-display" id="display-game-code" aria-hidden="true"></span>
       </div>
     </aside>
 
     <section class="map-page__content">
+      <aside class="setup-detective-panel" id="setup-detective-panel" aria-label="Настройка детектива" hidden>
+        <h3 class="setup-detective-panel__title" id="setup-detective-title">Настройка</h3>
+        <section class="setup-detective-panel__section" id="setup-panel-residents" hidden>
+          <p class="setup-detective-panel__hint">Распределите 20 жителей (макс. 3 в районе)</p>
+          <div class="setup-detective-panel__buttons">
+            <button type="button" class="btn btn--primary" id="btn-panel-residents-random">Распределить случайно</button>
+            <button type="button" class="btn btn--primary" id="btn-panel-residents-confirm">Распределить</button>
+          </div>
+        </section>
+        <section class="setup-detective-panel__section" id="setup-panel-buildings" hidden>
+          <p class="setup-detective-panel__hint">Распределите 8 зданий (макс. 1 в районе)</p>
+          <div class="setup-detective-panel__buttons">
+            <button type="button" class="btn btn--primary" id="btn-panel-buildings-random">Распределить случайно</button>
+            <button type="button" class="btn btn--primary" id="btn-panel-buildings-confirm">Подтвердить</button>
+          </div>
+        </section>
+        <section class="setup-detective-panel__section" id="setup-panel-position" hidden>
+          <p class="setup-detective-panel__hint">Выберите угол для стартовой позиции</p>
+          <div class="setup-detective-panel__corners" id="setup-panel-corner-buttons"></div>
+          <button type="button" class="btn btn--ghost" id="btn-panel-position-random">Случайный угол</button>
+        </section>
+      </aside>
       <div class="map-frame map-frame--full">
         <div class="map-board" aria-hidden="true">
           <div class="map-grid">
@@ -168,10 +192,193 @@
           </div>
         </div>
       </div>
+      <aside class="crimes-sidebar" aria-label="Слоты преступлений">
+        <span class="crimes-sidebar__label">Убиты</span>
+        <div class="crimes-slots crimes-slots--vertical">
+          <div class="crimes-slot" data-crime-index="0"></div>
+          <div class="crimes-slot" data-crime-index="1"></div>
+          <div class="crimes-slot" data-crime-index="2"></div>
+          <div class="crimes-slot" data-crime-index="3"></div>
+          <div class="crimes-slot" data-crime-index="4"></div>
+        </div>
+      </aside>
     </section>
+
+    <button type="button" class="witness-btn" id="btn-witness" aria-label="Показания свидетелей">
+      Показания свидетелей
+    </button>
   </main>
-    <script type="module"
-            src="./src/main.js"></script>
+
+  <div class="role-choice-overlay scenario-choice-overlay" id="scenario-choice-modal" aria-hidden="true" inert>
+    <div class="role-choice-modal scenario-choice-modal" role="dialog" aria-labelledby="scenario-choice-title" aria-modal="true">
+      <h2 class="role-choice-modal__title" id="scenario-choice-title">Выберите сценарий</h2>
+      <p class="scenario-choice-modal__hint">Выберите готовый сценарий или случайную раскладку</p>
+      <div class="scenario-choice-modal__buttons role-choice-modal__buttons" id="scenario-choice-buttons">
+        <button type="button" class="btn btn--primary scenario-choice-btn" data-scenario-id="">Свой сценарий (случайная раскладка)</button>
+        <!-- Карточки сценариев подставляются скриптом -->
+      </div>
+    </div>
+  </div>
+
+  <div class="role-choice-overlay" id="role-choice-modal" aria-hidden="true" inert>
+    <div class="role-choice-modal" role="dialog" aria-labelledby="role-choice-title" aria-modal="true">
+      <h2 class="role-choice-modal__title" id="role-choice-title">Выберите роль</h2>
+      <div class="role-choice-modal__buttons" id="role-choice-buttons">
+        <button type="button" class="btn btn--primary role-choice-btn" data-role="killer">Убийца</button>
+        <button type="button" class="btn btn--primary role-choice-btn" data-role="detective">Детектив</button>
+      </div>
+      <div class="role-choice-modal__link-block">
+        <p class="role-choice-modal__link-label">Ссылка для подключения второго игрока:</p>
+        <output class="role-choice-modal__link-url" id="role-choice-link" for="role-choice-copy"></output>
+        <button type="button" class="btn btn--ghost role-choice-modal__copy" id="role-choice-copy">Копировать</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="setup-overlay" id="setup-overlay" aria-hidden="true" inert>
+    <div class="setup-modal" role="dialog" aria-labelledby="setup-title" aria-modal="true">
+      <h2 class="setup-modal__title" id="setup-title">Настройка партии</h2>
+
+      <div class="setup-waiting" id="setup-waiting" hidden>
+        <p class="setup-waiting__text">Ожидание выбора убийцы…</p>
+      </div>
+
+      <section class="setup-section" id="setup-social-group" hidden>
+        <p class="setup-section__hint">Убийца, выберите союзную социальную группу</p>
+        <div class="setup-cards" id="setup-social-cards"></div>
+      </section>
+
+      <section class="setup-section" id="setup-killer-identity" hidden>
+        <p class="setup-section__hint">Выберите персонажа — это будет убийца</p>
+        <div class="setup-summary" id="setup-summary-social"></div>
+        <div class="setup-cards setup-cards--chars" id="setup-killer-cards"></div>
+      </section>
+
+      <section class="setup-section" id="setup-figurant" hidden>
+        <p class="setup-section__hint">Выберите фигуранта (сообщника)</p>
+        <div class="setup-summary" id="setup-summary-killer"></div>
+        <div class="setup-cards setup-cards--chars" id="setup-figurant-cards"></div>
+      </section>
+
+      <div class="setup-waiting" id="setup-waiting-detective" hidden>
+        <p class="setup-waiting__text">Ожидание настройки детектива…</p>
+      </div>
+
+      <section class="setup-section" id="setup-distribute-residents" hidden>
+        <p class="setup-section__hint">Распределите 20 жителей по карте (макс. 3 в районе)</p>
+        <div class="setup-buttons-row">
+          <button type="button" class="btn btn--primary" id="btn-distribute-residents-random">Распределить случайно</button>
+          <button type="button" class="btn btn--primary" id="btn-distribute-residents-confirm">Распределить</button>
+        </div>
+      </section>
+
+      <section class="setup-section" id="setup-distribute-buildings" hidden>
+        <p class="setup-section__hint">Распределите 8 зданий по городу (макс. 1 в районе)</p>
+        <div class="setup-buttons-row">
+          <button type="button" class="btn btn--primary" id="btn-distribute-buildings-random">Распределить случайно</button>
+          <button type="button" class="btn btn--primary" id="btn-distribute-buildings-confirm">Подтвердить</button>
+        </div>
+      </section>
+
+      <section class="setup-section" id="setup-detective-position" hidden>
+        <p class="setup-section__hint">Выберите угол города для стартовой позиции</p>
+        <div class="setup-corner-buttons" id="setup-corner-buttons"></div>
+        <button type="button" class="btn btn--ghost" id="btn-detective-position-random">Случайный угол</button>
+      </section>
+    </div>
+  </div>
+
+  <div class="modal-overlay witness-modal-overlay" id="witness-modal" aria-hidden="true">
+    <div class="witness-modal" role="dialog" aria-labelledby="witness-modal-title" aria-modal="true">
+      <button type="button" class="witness-modal__close" id="witness-modal-close" aria-label="Закрыть">×</button>
+      <div class="witness-modal__head">
+        <h2 class="witness-modal__title" id="witness-modal-title">
+          <span class="witness-modal__title-icon" aria-hidden="true">?</span>
+          Показания свидетелей
+        </h2>
+        <div class="witness-modal__examples">
+          <span class="witness-modal__examples-label">Примеры вопросов и заметок:</span>
+          <div class="witness-modal__example witness-modal__example--no">— Убийце около 40 лет? — Нет. <span class="witness-modal__mark witness-modal__mark--no">✕</span></div>
+          <div class="witness-modal__example witness-modal__example--yes">— Убийца среднего роста? — Да. <span class="witness-modal__mark witness-modal__mark--yes">✓</span></div>
+        </div>
+      </div>
+      <div class="witness-modal__table-wrap">
+        <table class="witness-table">
+          <thead>
+            <tr>
+              <th>Опрашиваемый</th>
+              <th>Соцгруппа</th>
+              <th colspan="2">Пол</th>
+              <th colspan="3">Возраст</th>
+              <th colspan="3">Телосложение</th>
+              <th colspan="3">Рост</th>
+            </tr>
+            <tr class="witness-table__subhead">
+              <th></th>
+              <th></th>
+              <th>♂</th>
+              <th>♀</th>
+              <th>20</th>
+              <th>40</th>
+              <th>60</th>
+              <th>S</th>
+              <th>M</th>
+              <th>L</th>
+              <th><span class="witness-table__height witness-table__height--short" title="Низкий"></span></th>
+              <th><span class="witness-table__height witness-table__height--mid" title="Средний"></span></th>
+              <th><span class="witness-table__height witness-table__height--tall" title="Высокий"></span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>4</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>5</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>6</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>7</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>8</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>9</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>10</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="witness-modal__sections">
+        <div class="witness-modal__section">
+          <h3 class="witness-modal__section-title">Соцгруппы:</h3>
+          <div class="witness-groups" id="witness-groups">
+            <span class="witness-group" data-group="богема">Богема</span>
+            <span class="witness-group" data-group="закон">Закон</span>
+            <span class="witness-group" data-group="иммигранты">Иммигранты</span>
+            <span class="witness-group" data-group="рабочие">Рабочие</span>
+            <span class="witness-group" data-group="маргиналы">Маргиналы</span>
+            <span class="witness-group" data-group="власть">Власть</span>
+            <span class="witness-group" data-group="медицина">Медицина</span>
+            <span class="witness-group" data-group="пресса">Пресса</span>
+            <span class="witness-group" data-group="криминал">Криминал</span>
+          </div>
+        </div>
+        <div class="witness-modal__section">
+          <h3 class="witness-modal__section-title">Мотивы:</h3>
+          <div class="witness-motives" id="witness-motives">
+            <div class="witness-motive-cell"></div>
+            <div class="witness-motive-cell"></div>
+            <div class="witness-motive-cell"></div>
+            <div class="witness-motive-cell"></div>
+            <div class="witness-motive-cell"></div>
+            <div class="witness-motive-cell"></div>
+          </div>
+        </div>
+      </div>
+      <div class="witness-modal__notes">
+        <div class="witness-notes-line"></div>
+        <div class="witness-notes-line"></div>
+        <div class="witness-notes-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
 </body>
 
 </html>

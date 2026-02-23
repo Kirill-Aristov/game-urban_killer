@@ -1,0 +1,86 @@
+[
+  {
+    "id": "terrorist",
+    "title": "Террорист",
+    "description": "Все жертвы должны быть представителями разных соцгрупп",
+    "logicMode": false,
+    "img": "../assets/motives/terrorist.png"
+  },
+  {
+    "id": "slasher",
+    "title": "Головорез",
+    "description": "Вы не можете убирать в 4 центральных кварталах города",
+    "logicMode": false,
+    "img": "../assets/motives/slasher.png"
+  },
+  {
+    "id": "maniac",
+    "title": "Маньяк",
+    "description": "Все жертвы должны быть одного пола",
+    "logicMode": true,
+    "img": "../assets/motives/maniac.png"
+  },
+  {
+    "id": "hitman",
+    "title": "Киллер",
+    "description": "Вы можете убирать только в кварталах с одним жителем",
+    "logicMode": true,
+    "img": "../assets/motives/hitman.png"
+  },
+  {
+    "id": "sadist",
+    "title": "Садист",
+    "description": "Вы не можете убирать запуганных граждан",
+    "logicMode": true,
+    "img": "../assets/motives/sadist.png"
+  },
+  {
+    "id": "vigilante",
+    "title": "Вигилант",
+    "description": "Вы не можете убирать в 8 кварталах вокруг фишки детектива",
+    "logicMode": true,
+    "img": "../assets/motives/vigilante.png"
+  },
+  {
+    "id": "psychopath",
+    "title": "Психопат",
+    "description": "Все жертвы должны быть максимум двух разных возрастов",
+    "logicMode": true,
+    "img": "../assets/motives/psychopath.png"
+  },
+  {
+    "id": "radical",
+    "title": "Радикал",
+    "description": "Минимум 3 жертвы должны принадлежать одной соцгруппе",
+    "logicMode": false,
+    "img": "../assets/motives/radical.png"
+  },
+  {
+    "id": "spy",
+    "title": "Шпион",
+    "description": "Все жертвы должны быть убиты в кварталах со зданиями",
+    "logicMode": true,
+    "img": "../assets/motives/spy.png"
+  },
+  {
+    "id": "robber",
+    "title": "Грабитель",
+    "description": "Вы не можете убирать в квартале, соседнем с предыдущим местом преступления",
+    "logicMode": false,
+    "img": "../assets/motives/robber.png"
+  },
+  {
+    "id": "cannibal",
+    "title": "Каннибал",
+    "description": "Среди жертв должны быть жители всех трёх видов телосложения",
+    "logicMode": false,
+    "img": "../assets/motives/cannibal.png"
+  },
+  {
+    "id": "cultist",
+    "title": "Культист",
+    "description": "Первая жертва отличается соцгруппой от Фигуранта дела. Убийца должен менять соцгруппы жертвы после каждого убийства. Должен убить фигуранта дела",
+    "logicMode": false,
+    "img": "../assets/motives/cultist.png"
+  }
+]

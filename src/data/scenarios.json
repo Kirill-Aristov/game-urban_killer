@@ -1,0 +1,120 @@
+[
+  {
+    "id": "starter",
+    "name": "Стартовый сценарий",
+    "motiveIds": [
+      "maniac",
+      "sadist",
+      "slasher",
+      "vigilante",
+      "hitman",
+      "terrorist"
+    ],
+    "buildings": [
+      { "areaId": "roki-hill", "type": "Пожарная часть" },
+      { "areaId": "business-center", "type": "Полицейский участок" },
+      { "areaId": "central-park", "type": "Закусочная" },
+      { "areaId": "stadium", "type": "Пожарная часть" },
+      { "areaId": "east-side", "type": "Закусочная" },
+      { "areaId": "little-italy", "type": "Больница" },
+      { "areaId": "river-station", "type": "Больница" },
+      { "areaId": "university", "type": "Полицейский участок" }
+    ],
+    "residentsWithTwo": ["roki-hill", "golden-beach", "stadium", "old-town"]
+  },
+  {
+    "id": "agents",
+    "name": "Агенты казначейства",
+    "motiveIds": [
+      "spy",
+      "slasher",
+      "psychopath",
+      "vigilante",
+      "terrorist",
+      "sadist"
+    ],
+    "buildings": [
+      { "areaId": "port", "type": "Полицейский участок" },
+      { "areaId": "golden-beach", "type": "Больница" },
+      { "areaId": "west-side", "type": "Больница" },
+      { "areaId": "president-square", "type": "Пожарная часть" },
+      { "areaId": "central-park", "type": "Закусочная" },
+      { "areaId": "river-station", "type": "Закусочная" },
+      { "areaId": "stadium", "type": "Пожарная часть" },
+      { "areaId": "university", "type": "Полицейский участок" }
+    ],
+    "residentsWithTwo": [
+      "roki-hill",
+      "golden-beach",
+      "business-center",
+      "president-square"
+    ]
+  },
+  {
+    "id": "dangerous-ground",
+    "name": "На опасной земле",
+    "motiveIds": [
+      "hitman",
+      "psychopath",
+      "vigilante",
+      "cultist",
+      "sadist",
+      "maniac"
+    ],
+    "buildings": [
+      { "areaId": "east-side", "type": "Полицейский участок" },
+      { "areaId": "chinatown", "type": "Полицейский участок" },
+      { "areaId": "west-side", "type": "Больница" },
+      { "areaId": "river-station", "type": "Больница" },
+      { "areaId": "port", "type": "Закусочная" },
+      { "areaId": "university", "type": "Закусочная" },
+      { "areaId": "little-italy", "type": "Пожарная часть" },
+      { "areaId": "stadium", "type": "Пожарная часть" }
+    ],
+    "residentsWithTwo": [
+      "central-park",
+      "santa-cruz",
+      "business-center",
+      "president-square"
+    ]
+  },
+  {
+    "id": "seal-of-evil",
+    "name": "Печать зла",
+    "motiveIds": [
+      "spy",
+      "sadist",
+      "slasher",
+      "maniac",
+      "radical",
+      "psychopath"
+    ],
+    "buildings": [
+      { "areaId": "business-center", "type": "Полицейский участок" },
+      { "areaId": "santa-cruz", "type": "Полицейский участок" },
+      { "areaId": "chinatown", "type": "Больница" },
+      { "areaId": "east-side", "type": "Больница" },
+      { "areaId": "port", "type": "Закусочная" },
+      { "areaId": "university", "type": "Закусочная" },
+      { "areaId": "little-italy", "type": "Пожарная часть" },
+      { "areaId": "richmond", "type": "Пожарная часть" }
+    ],
+    "residentsWithTwo": ["port", "east-side", "university", "chinatown"]
+  },
+  {
+    "id": "dead-on-arrival",
+    "name": "Мёртв по прибытии",
+    "motiveIds": ["spy", "sadist", "radical", "maniac", "cannibal", "robber"],
+    "buildings": [
+      { "areaId": "business-center", "type": "Полицейский участок" },
+      { "areaId": "university", "type": "Полицейский участок" },
+      { "areaId": "golden-beach", "type": "Больница" },
+      { "areaId": "stadium", "type": "Больница" },
+      { "areaId": "president-square", "type": "Закусочная" },
+      { "areaId": "chinatown", "type": "Закусочная" },
+      { "areaId": "santa-cruz", "type": "Пожарная часть" },
+      { "areaId": "roki-hill", "type": "Пожарная часть" }
+    ],
+    "residentsWithTwo": ["west-side", "old-town", "river-station", "chinatown"]
+  }
+]

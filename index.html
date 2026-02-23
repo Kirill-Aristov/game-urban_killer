@@ -6,6 +6,7 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
   <title>Городской убийца — стартовое меню</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23222'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%23fff'>K</text></svg>">
   <link rel="stylesheet"
         href="/src/style/global.css">
 </head>
@@ -38,6 +39,16 @@
         <div>
           <div class="menu-section-title">Начало партии</div>
           <div class="primary-actions">
+            <div class="room-name-wrap">
+              <label for="room-name-input" class="visually-hidden">Название комнаты</label>
+              <input type="text"
+                     id="room-name-input"
+                     class="input-game-code input-game-code--full"
+                     placeholder="Введите название комнаты"
+                     maxlength="16"
+                     autocomplete="off">
+              <span class="input-error-msg" id="room-name-error" aria-live="polite">Введите название комнаты</span>
+            </div>
             <button type="button" class="btn btn--primary" id="btn-create-game" aria-describedby="btn-create-game-desc">
               <span class="btn__label-main">Создать партию</span>
               <span class="btn__label-sub" id="btn-create-game-desc">Создание игры через сервер и переход на карту</span>

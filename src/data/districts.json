@@ -1,0 +1,98 @@
+[
+  {
+    "id": "roki-hill",
+    "name": "Роки Хилл",
+    "corner": true,
+    "img": "../assets/map/roki-hill.png"
+  },
+  {
+    "id": "port",
+    "name": "Порт",
+    "corner": false,
+    "img": "../assets/map/port.png"
+  },
+  {
+    "id": "little-italy",
+    "name": "Маленькая Италия",
+    "corner": false,
+    "img": "../assets/map/little-italy.png"
+  },
+  {
+    "id": "golden-beach",
+    "name": "Золотой пляж",
+    "corner": true,
+    "img": "../assets/map/golden-beach.png"
+  },
+  {
+    "id": "west-side",
+    "name": "Вест‑Сайд",
+    "corner": false,
+    "img": "../assets/map/west-side.png"
+  },
+  {
+    "id": "business-center",
+    "name": "Деловой центр",
+    "corner": false,
+    "img": "../assets/map/business-center.png"
+  },
+  {
+    "id": "president-square",
+    "name": "Президентская площадь",
+    "corner": false,
+    "img": "../assets/map/president-square.png"
+  },
+  {
+    "id": "east-side",
+    "name": "Ист‑Сайд",
+    "corner": false,
+    "img": "../assets/map/east-side.png"
+  },
+  {
+    "id": "chinatown",
+    "name": "Китайский квартал",
+    "corner": false,
+    "img": "../assets/map/chinatown.png"
+  },
+  {
+    "id": "central-park",
+    "name": "Центральный парк",
+    "corner": false,
+    "img": "../assets/map/central-park.png"
+  },
+  {
+    "id": "santa-cruz",
+    "name": "Санта‑Круз",
+    "corner": false,
+    "img": "../assets/map/santa-cruz.png"
+  },
+  {
+    "id": "river-station",
+    "name": "Речной вокзал",
+    "corner": false,
+    "img": "../assets/map/river-station.png"
+  },
+  {
+    "id": "stadium",
+    "name": "Стадион",
+    "corner": true,
+    "img": "../assets/map/stadium.png"
+  },
+  {
+    "id": "richmond",
+    "name": "Ричмонд",
+    "corner": false,
+    "img": "../assets/map/richmond.png"
+  },
+  {
+    "id": "university",
+    "name": "Университет",
+    "corner": false,
+    "img": "../assets/map/university.png"
+  },
+  {
+    "id": "old-town",
+    "name": "Старый город",
+    "corner": true,
+    "img": "../assets/map/old-town.png"
+  }
+]
